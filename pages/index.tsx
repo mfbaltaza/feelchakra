@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to{" "}
-          <a href="basedcode" target="_blank">
+          <a href="https://basedcode.com/" target="_blank">
             THE FUTURE OF THE WEB!
           </a>
         </h1>

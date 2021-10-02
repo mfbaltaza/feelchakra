@@ -1,15 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import NextImage from "next/image";
+
+import { useEffect, useState } from "react";
 
 import styles from "../styles/Home.module.css";
 
-import { Stack } from "@chakra-ui/layout";
-import { Checkbox } from "@chakra-ui/checkbox";
-
-import Feature from "../components/Feature";
+import { Text, Box } from "@chakra-ui/layout";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Center, Square, Circle } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
+  const [loading, setLoading] = useState(true);
+  const [kanyeQuote, setKanyeQuote] = useState("");
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    fetch("https://api.kanye.rest/")
+      .then((res) => res.json())
+      .then((data) => setKanyeQuote(data.quote))
+      .then(() => setLoading(false));
+  }, [counter]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,26 +30,42 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to{" "}
-          <a href="https://basedcode.com/" target="_blank">
+          <a href="https://basedcode.com/" target="_blank" rel="noreferrer">
             THE FUTURE OF THE WEB!
           </a>
-        </h1>
+        </h1> */}
 
-        <Feature mt={8} title="Principal" desc="Buying things out"></Feature>
+        {kanyeQuote && (
+          <Box p="5" shadow="md" m="2" borderWidth="1px" w="720px">
+            <Center>
+              <Text fontSize="2xl">{kanyeQuote}</Text>
+            </Center>
+            <Center>
+              <Button
+                mt={4}
+                onClick={() => setCounter(counter + 1)}
+                colorScheme="yellow"
+              >
+                Another
+              </Button>
+            </Center>
+          </Box>
+        )}
+
+        {/* <Feature mt={8} title="Principal" desc="Buying things out"></Feature>
         <Feature title="Secondary" desc="Buying things out"></Feature>
-        <Feature mb={8} title="Third" desc="Buying things out"></Feature>
+        <Feature mb={8} title="Third" desc="Buying things out"></Feature> */}
 
-        <Stack spacing={10} direction="row">
+        {/* <Stack spacing={10} direction="row">
           <Checkbox colorScheme="red" defaultIsChecked>
             Checkbox
           </Checkbox>
           <Checkbox colorScheme="green" defaultIsChecked>
             Checkbox
           </Checkbox>
-        </Stack>
-
+        </Stack> */}
       </main>
 
       <footer className={styles.footer}>
@@ -47,15 +74,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <NextImage
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              width={72}
-              height={16}
-            />
-          </span>
+          Made with ❤️ in CCS{" "}
         </a>
       </footer>
     </div>

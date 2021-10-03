@@ -32,7 +32,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
 
         {kanyeQuote && (
-          <Box p="5" shadow="md" m="2" borderWidth="1px" w="720px">
+          <Box p="5" shadow="md" m="2" borderWidth="1px" w={{ base: "auto", md: "720px" }} >
             <Center>
               <Text align="center" fontSize="2xl">{kanyeQuote}</Text>
             </Center>

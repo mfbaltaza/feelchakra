@@ -38,7 +38,7 @@ const Home: NextPage = () => {
             </Center>
             <Center>
               <Button
-                mt={4}
+                mt="4"
                 onClick={() => setQuoter(!quoter)}
                 colorScheme="yellow"
               >

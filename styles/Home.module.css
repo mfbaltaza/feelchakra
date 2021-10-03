@@ -26,14 +26,14 @@
   align-items: center;
 }
 
-.footer a {
+/* .footer a {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-}
+} */
 
-.title a {
+/* .title a {
   text-decoration: none;
 }
 
@@ -41,7 +41,7 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
+} */
 
 .title {
   margin: 0;

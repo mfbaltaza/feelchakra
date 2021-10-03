@@ -12,14 +12,14 @@ import { Center, Square, Circle } from "@chakra-ui/react";
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [kanyeQuote, setKanyeQuote] = useState("");
-  const [counter, setCounter] = useState(0);
+  const [quoter, setQuoter] = useState(false);
 
   useEffect(() => {
     fetch("https://api.kanye.rest/")
       .then((res) => res.json())
       .then((data) => setKanyeQuote(data.quote))
       .then(() => setLoading(false));
-  }, [counter]);
+  }, [quoter]);
 
   return (
     <div className={styles.container}>
@@ -30,22 +30,16 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {/* <h1 className={styles.title}>
-          Welcome to{" "}
-          <a href="https://basedcode.com/" target="_blank" rel="noreferrer">
-            THE FUTURE OF THE WEB!
-          </a>
-        </h1> */}
 
         {kanyeQuote && (
           <Box p="5" shadow="md" m="2" borderWidth="1px" w="720px">
             <Center>
-              <Text fontSize="2xl">{kanyeQuote}</Text>
+              <Text align="center" fontSize="2xl">{kanyeQuote}</Text>
             </Center>
             <Center>
               <Button
                 mt={4}
-                onClick={() => setCounter(counter + 1)}
+                onClick={() => setQuoter(!quoter)}
                 colorScheme="yellow"
               >
                 Another
@@ -54,23 +48,11 @@ const Home: NextPage = () => {
           </Box>
         )}
 
-        {/* <Feature mt={8} title="Principal" desc="Buying things out"></Feature>
-        <Feature title="Secondary" desc="Buying things out"></Feature>
-        <Feature mb={8} title="Third" desc="Buying things out"></Feature> */}
-
-        {/* <Stack spacing={10} direction="row">
-          <Checkbox colorScheme="red" defaultIsChecked>
-            Checkbox
-          </Checkbox>
-          <Checkbox colorScheme="green" defaultIsChecked>
-            Checkbox
-          </Checkbox>
-        </Stack> */}
       </main>
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://basedcode.com/"
           target="_blank"
           rel="noopener noreferrer"
         >

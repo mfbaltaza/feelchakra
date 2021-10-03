@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 import { Text, Box } from "@chakra-ui/layout";
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import { Center, Square, Circle } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
